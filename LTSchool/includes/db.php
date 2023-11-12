@@ -1,11 +1,11 @@
 <?php
 
-    $host = "bpwy1dcsa1mcx5dsui0u-mysql.services.clever-cloud.com";
-    $user = "uzdw4zvdkutw5xtl";
-    $password = "g12r5yTL04okkU0RTAJ5";
-    $database = "bpwy1dcsa1mcx5dsui0u";
+    $servername = "lps1819.mariadb.database.azure.com";
+   $username = "JesusAlonso@lps1819";
+   $password = "Alonsogomez1819";
+   $database = "lpstec";
 
-    $conexion = mysqli_connect($host, $user, $password, $database);
+   $conn = mysqli_connect($servername, $username, $password, $database);
     if(!$conexion){
         echo "No se realizo la conexion a la basa de datos, el error fue:".
         mysqli_connect_error() ;
