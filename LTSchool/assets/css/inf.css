@@ -1,0 +1,22 @@
+h1 {
+    font-size: 39px;
+    font-weight: bold;
+    text-align: center;
+    color: aliceblue;
+ }
+ body {
+    background-image: url(../images/Fondos-web-768x480.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+    color: #333; 
+}
+.cont{
+    position: absolute;
+    height: 284px;
+    width: 372px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
