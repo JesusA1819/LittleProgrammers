@@ -1,8 +1,8 @@
    <?php
-   $servername = "bpwy1dcsa1mcx5dsui0u-mysql.services.clever-cloud.com";
-   $username = "uzdw4zvdkutw5xtl";
-   $password = "g12r5yTL04okkU0RTAJ5";
-   $database = "bpwy1dcsa1mcx5dsui0u";
+   $servername = "lps1819.mariadb.database.azure.com";
+   $username = "JesusAlonso@lps1819";
+   $password = "Alonsogomez1819";
+   $database = "lpstec";
 
    $conn = mysqli_connect($servername, $username, $password, $database);
 
