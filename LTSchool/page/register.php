@@ -1,4 +1,4 @@
-   <?php
+<?php
    $servername = "lps1819.mariadb.database.azure.com";
    $username = "JesusAlonso@lps1819";
    $password = "Alonsogomez1819";
@@ -221,7 +221,7 @@
                      <!--Usuario-->
                      <div class="input-group mb-2">
                            <span class="input-group-text" id="basic-addon1"><i class="fa fa-user"></i></span>
-                           <input type="text" autocomplete="nope" name="matricula" class="form-control" placeholder="Usuario" aria-label="Usuario" minlength="8" maxlength="8" oninput="soloNumeros(event); validarFormulario(this);" onblur="minimo8(this.value, this);">
+                           <input type="text" autocomplete="nope" name="matricula" class="form-control" placeholder="Usuario" aria-label="Usuario" minlength="10" maxlength="10" oninput="soloNumeros(event); validarFormulario(this);" onblur="minimo8(this.value, this);">
                      </div>
                      <!--Nombre-->
                      <div class="input-group mb-2">
