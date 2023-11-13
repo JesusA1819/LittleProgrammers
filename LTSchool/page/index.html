@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
    <!--Metas Defauld-->
    <meta charset="UTF-8">
@@ -21,71 +22,45 @@
 
    <!--TODO LOS JAVASCRIPT SE ENCEUNTRA EN LA CARPETA CONTROLLER NOMBRADO SCRIPTS.PHP-->
    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-   <title>Login · LTSchool</title>
+   <title>Registro de datos · LTSchool</title>
+   <link rel="stylesheet" href="../assets/css/inf.css">
+
    <script>
-   function soloNumeros(event) {
-      const input = event.target;
-      const valor = input.value;
-      input.value = valor.replace(/[^0-9]/g, ''); 
-   }
-
-   let avisoMostrado = false;
-
-   function minimo8(valor, input) {
-      if (valor.length < 8 && !avisoMostrado) {
-         alert('La matrícula debe contener al menos 8 dígitos numéricos');
-         avisoMostrado = true;
-         input.focus(); 
-      } else {
-         avisoMostrado = false; 
-      }
-   }
-
-   function solonumeroyletras(event){
+      function soloTexto(event) {
          const input = event.target;
-            const valor = input.value;
-            input.value = valor.replace(/[^A-Z0-9a-záéíóúÁÉÍÓÚ\s]/g, '');
-        }
+         const valor = input.value;
+         input.value = valor.replace(/[^A-Za-záéíóúÁÉÍÓÚ\s]/g, '');
+      }
+      function soloNumeros(event) {
+         const input = event.target;
+         const valor = input.value;
+         input.value = valor.replace(/\D/g, ''); 
+      }
+
    </script>
 </head>
 <body>
-   <!--Reacomodamiento general y anexo de fondo-->
-   <section class="pt-5 pb-5 mt-0 align-items-center d-flex bg-dark" style="min-height: 100vh; background-size: cover; background-image: url(https://puntomedio.mx/wp-content/uploads/2019/12/PM_14_2COLBYN_LACTARIO-ITSP.jpg);">
-       <div class="container-fluid">
-           <!--Ajustes responsibos-->
-           <div class="row  justify-content-center align-items-center d-flex-row text-center h-100">
-           <div class="col-12 col-md-4 col-lg-3   h-50 ">
-               <!--Encapsulamiento del <form>-->
-               <div class="card shadow">
-               <div class="card-body mx-auto">
-                   <h4 class="card-title mt-3 text-center">Iniciar sesión</h4>
-                   <p class="text-center">Ingrese los datos correspontientes</p>
-                   <form method="post" action="checkup/verificacion.php">
-                   <!--Usuario-->
-                   <div class="input-group mb-2">
-                       <span class="input-group-text" id="basic-addon1"><i class="fa fa-user"></i></span>
-                       <input type="text" class="form-control" placeholder="Usuario" aria-label="Usuario" id="Matricula" name="Matricula" maxlength="10" oninput="soloNumeros(event);" onblur="minimo8(this.value, this);" required>
-                   </div>
-                   <!--Contraseña-->
-                   <div class="input-group mb-2">
-                       <span class="input-group-text" id="basic-addon1"><i class="fa fa-lock"></i></span>
-                       <input type="password" class="form-control" placeholder="Contraseña" aria-label="Contraseña" id="Contrasena" name="Contrasena"  maxlength="12" oninput="solonumeroyletras(event);" required>
-                   </div>
-                   <!--Botón para iniciar sesion-->
-                   <div class="form-group d-grid mt-3">
-                       <button type="submit" class="btn btn-primary btn-block"> Ingresar </button>
-                   </div>
-                   <!--Redireccion a registro (register.php)-->
-                   <p class="text-center mt-2">¿No tienes una cuenta?
-                       <a href="register.php">Registrarse</a>
-                   </p>
-                   </form>
-               </div>
-               </div>
-           </div>
-           </div>
-       </div>
+   <section class="pt-5 pb-5 mt-0 align-items-center d-flex bg-dark" style="min-height: 100vh; background-size: cover; background-image: url(https://img.freepik.com/fotos-premium/fondo-negro-espacio-copia_28629-1765.jpg);">
+      <div class="container-fluid">
+         <!--Ajustes responsibos-->
+         <div class="row  justify-content-center align-items-center d-flex-row text-center h-100">
+         <div class="col-10 h-50 ">
+            <div class="position-relative p-5 text-center text-muted bg-body border border-dashed rounded-5">
+               <svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" fill="currentColor" class="bi bi-exclamation-triangle mt-5 mb-3 text-warning" viewBox="0 0 16 16">
+               <path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/>
+               <path d="M7.002 12a1 1 0 1 1 2 0 1 1 0 0 1-2 0zM7.1 5.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995z"/>
+               </svg>
+               <h1 class="text-body-emphasis">Acceso Denegado</h1>
+               <p class="col-lg-6 mx-auto mb-4">
+                  Es psoible que algun campo que se a ingresado sea incorrecto, vuelva a intentarlo.
+               </p>
+               <p class="text-center mt-2">
+                  <a href="../index.html">Iniciar Sesion</a>
+               </p>
+            </div>
+         </div>
+         </div>
+      </div>
    </section>
 </body>
-
 </html>
