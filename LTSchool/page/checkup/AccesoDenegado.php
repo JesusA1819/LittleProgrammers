@@ -23,7 +23,7 @@
    <!--TODO LOS JAVASCRIPT SE ENCEUNTRA EN LA CARPETA CONTROLLER NOMBRADO SCRIPTS.PHP-->
    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
    <title>Registro de datos · LTSchool</title>
-   <link rel="stylesheet" href="../assets/css/inf.css">
+   <link rel="stylesheet" href="../../assets/css/inf.css">
 
    <script>
       function soloTexto(event) {
