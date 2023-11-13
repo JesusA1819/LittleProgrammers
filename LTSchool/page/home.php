@@ -164,8 +164,8 @@ if ($statement_instrucciones) {
                                 while ($fila_tareas = mysqli_fetch_assoc($resultado_tareas)) {
                             ?>
                                     <tr>
-                                        <td><?php echo $fila_tareas['Instruccion']; ?></td>
                                         <td><?php echo $fila_tareas['Archivo']; ?></td>
+                                        <td><?php echo $fila_tareas['Instruccion']; ?></td>
                                         <td><?php echo $fila_tareas['Calificacion']; ?></td>
                                         <td><?php echo $fila_tareas['Fecha']; ?></td>
                                         <td><?php echo $fila_tareas['Tiempo']; ?></td>
