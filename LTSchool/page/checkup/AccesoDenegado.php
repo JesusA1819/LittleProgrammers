@@ -23,7 +23,7 @@
    <!--TODO LOS JAVASCRIPT SE ENCEUNTRA EN LA CARPETA CONTROLLER NOMBRADO SCRIPTS.PHP-->
    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
    <title>Registro de datos · LTSchool</title>
-   <link rel="stylesheet" href="../../assets/css/inf.css">
+   <link rel="stylesheet" href="../assets/css/inf.css">
 
    <script>
       function soloTexto(event) {
@@ -37,9 +37,6 @@
          input.value = valor.replace(/\D/g, ''); 
       }
 
-      setTimeout(function() {
-         window.location.href = "../index.html"; 
-      }, 3000); 
    </script>
 </head>
 <body>
@@ -57,9 +54,9 @@
                <p class="col-lg-6 mx-auto mb-4">
                   Es psoible que algun campo que se a ingresado sea incorrecto, vuelva a intentarlo.
                </p>
-               <button class="btn btn-primary px-5 mb-5" type="button">
-               Redirigiendo...
-               </button>
+               <p class="text-center mt-2">
+                  <a href="../index.html">Iniciar Sesion</a>
+               </p>
             </div>
          </div>
          </div>
