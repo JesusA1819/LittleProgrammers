@@ -51,7 +51,7 @@
                </svg>
                <h1 class="text-body-emphasis">Datos guardados correctamente</h1>
                <p class="text-center mt-2">
-                  <a href="index.html">Iniciar Sesion</a>
+               <button class="styled-button"><a href="index.html">Iniciar Sesion</a></button> 
                </p>
             </div>
          </div>
