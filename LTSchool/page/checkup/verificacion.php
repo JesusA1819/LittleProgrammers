@@ -1,12 +1,12 @@
 <?php
 session_start();
 
-            $servername = "lps1819.mariadb.database.azure.com";
-            $username = "JesusAlonso@lps1819";
-            $password = "Alonsogomez1819";
-            $database = "lpstec";
-            
-            $conexion = mysqli_connect($servername, $username, $password, $database);
+    $servername = "lps1819.mariadb.database.azure.com";
+    $username = "JesusAlonso@lps1819";
+    $password = "Alonsogomez1819";
+    $database = "lpstec";
+    
+    $conexion = mysqli_connect($servername, $username, $password, $database);
 if (!$conexion) {
     echo "No se realizó la conexión a la base de datos, el error fue:" . mysqli_connect_error();
 } else {
@@ -16,7 +16,6 @@ if (!$conexion) {
     $sql = "SELECT Matricula, Nombre, Contrasena
             FROM usuario
             WHERE Matricula = ? AND Contrasena = ?";
-
     $stmt = $conexion->prepare($sql);
     $stmt->bind_param("is", $username, $password);
     $stmt->execute();
@@ -31,8 +30,7 @@ if (!$conexion) {
         header("Location: ../home.php");
         exit();
     } else {
-        echo "Acceso denegado";
-        header("Location: AccesoDenegado.php");
+        header("Location: ../AccesoDenegado.php");
         exit();
     }
     
