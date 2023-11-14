@@ -57,7 +57,7 @@ if (!$conexion) {
            <!--TODO LOS JAVASCRIPT SE ENCEUNTRA EN LA CARPETA CONTROLLER NOMBRADO SCRIPTS.PHP-->
            <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
            <title>Registro de datos · LTSchool</title>
-           <link rel="stylesheet" href="../../assets/css/inf.css">
+           <link rel="stylesheet" href="assets/css/inf.css">
         
            <script>
               function soloTexto(event) {
@@ -89,7 +89,7 @@ if (!$conexion) {
                           Es psoible que algun campo que se a ingresado sea incorrecto, vuelva a intentarlo.
                        </p>
                        <p class="text-center mt-2">
-                       <button class="styled-button"><a href="../index.html">Iniciar Sesion</a></button> 
+                       <button class="styled-button"><a href="index.html">Iniciar Sesion</a></button> 
                        </p>
                     </div>
                  </div>
