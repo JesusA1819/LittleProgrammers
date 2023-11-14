@@ -117,7 +117,7 @@
    <head>
       <!-- Inclusion del head -->
       <?php include 'controller/head.php';?>
-      <title>Register · LTSchool</title>
+      <title>ITSP · Register</title>
 
       <script> // Validacion de campos
          function soloTexto(event) {
