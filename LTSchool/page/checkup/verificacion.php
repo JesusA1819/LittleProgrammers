@@ -100,7 +100,7 @@ if (!$conexion) {
         </html>
 
         <?php
-    }
-    
+    }
+    
 }
 ?>
