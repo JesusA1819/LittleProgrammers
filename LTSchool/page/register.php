@@ -89,6 +89,7 @@
                      if ($stmtUsuario) {
                         mysqli_stmt_bind_param($stmtUsuario, "ssssiiiisi", $matricula, $nombre, $apellidoPaterno, $apellidoMaterno, $idTelefono, $idCorreo, $semestre, $carrera, $contrasena, $edad);
                         if (mysqli_stmt_execute($stmtUsuario)) {
+                           mysqli_commit($conn);
                            mysqli_close($conn);
                            header("Location: exito.php");
                            exit();
@@ -158,6 +159,7 @@
 
          // Verificacion de campos completos
          function validarFormulario(input) {
+
             var matriculaInput = document.querySelector('input[name="matricula"]');
             var nombreInput = document.querySelector('input[name="nombre"]');
             var apellidopInput = document.querySelector('input[name="apellido_paterno"]');
@@ -181,11 +183,17 @@
             var semestreValor = semestreSelect.value;
             var carreraValor = carreraSelect.value;
 
+            var valorSinEspacios = input.value.trim();
+
             // Si los campos no son iguales a Null se quitara el disabled del botón "Guardar datos"
             if (matriculaValor !== "" && nombreValor !== "" && apellidopValor !== "" && apellidomValor !== "" && telefonoValor !== "" && edadValor !== "" && correoValor !== "" && contrasenaValor !== "" && semestreValor !== "" && carreraValor !== "" && validarCorreo(correoInput)) {
                 botonGuardar.removeAttribute("disabled");
             } else { // Caso contrario se mantendra o agregara
                 botonGuardar.setAttribute("disabled", "disabled");
+            }
+            if (!validarEspacios(valorSinEspacios)) {
+               alert("No se permiten espacios en blanco");
+               input.value = valorSinEspacios.replace(/\s+/g, ''); // Eliminar espacios y actualizar el valor del campo
             }
         }
 
@@ -202,6 +210,10 @@
             return formatoCorreo.test(correoValor);
         }
 
+        function validarEspacios(valor) {
+            return /^\S+$/.test(valor);
+         }
+
      </script>
 </head>
 <body>
@@ -215,7 +227,7 @@
                <div class="card shadow">
                <div class="card-body mx-auto">
                   <h4 class="card-title mt-3 text-center">Registro</h4>
-                  <p class="text-center">Ingrese los datos correspontientes</p>
+                  <p class="text-center">Ingrese los datos correspondientes</p>
                   <form method="post">
                   <fieldset>
                   <legend>Información personal</legend>
@@ -257,7 +269,7 @@
                      <!--Contraseña-->
                      <div class="input-group mb-2">
                            <span class="input-group-text" id="basic-addon1"><i class="fa fa-lock"></i></span>
-                           <input type="password" autocomplete="nope" name="contrasena" class="form-control" placeholder="Contraseña" aria-label="Contraseña" maxlength="12" oninput="solonumeroyletras(event); ">
+                           <input type="password" autocomplete="nope" name="contrasena" class="form-control" placeholder="Contraseña" aria-label="Contraseña" maxlength="12" oninput="solonumeroyletras(event);  validarFormulario(this);">
                      </div>
                   </fieldset>
                   
