@@ -1,4 +1,4 @@
-<?php
+   <?php
    $servername = "lps1819.mariadb.database.azure.com";
    $username = "JesusAlonso@lps1819";
    $password = "Alonsogomez1819";
