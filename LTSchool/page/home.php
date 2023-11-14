@@ -205,7 +205,7 @@ $matricula = $_SESSION['Matricula'];
                 }
             }
             ?>
-            <div class="document-container" style="display: <?php echo $documentosMostrados ? 'none' : 'block'; ?>">
+            <div class="document-container" style="display: <?php echo $documentosMostrados ? 'none' : 'SC'; ?>">
                 <!-- Contenido de documentos -->
                 <table class="table table-bordered" width="100%" cellspacing="0">
                     <thead>
