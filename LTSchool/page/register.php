@@ -10,6 +10,8 @@
       die("La conexión a la base de datos falló: " . mysqli_connect_error());
    }
 
+   mysqli_begin_transaction($conn);
+
    if ($_SERVER["REQUEST_METHOD"] == "POST") {
       $nombre = $_POST["nombre"];
       $apellidoPaterno = $_POST["apellido_paterno"];
@@ -48,61 +50,60 @@
             if (mysqli_num_rows($resultado) > 0) {
                echo '<script>alert("El telefono ya fue utilizado");</script>';
             } 
-            
-            else {
+               else {
+                        //-------------------------- consulta para ver si el correo ya existe
+                  $query = "SELECT Correo_electronico FROM correos WHERE Correo_electronico = '$correoElectronico'";
+                  $resultado = mysqli_query($conn, $query);
+                  if ($resultado === false) {
+                     echo '<script>alert("El correo no se pudo comprobar");</script>';
+                  }
+                        
+                  if (mysqli_num_rows($resultado) > 0) {
+                     echo '<script>alert("El correo ya fue utilizado");</script>';
+                  } else {
 
-                     //-------------------------- consulta para ver si el correo ya existe
+                  $sqlTelefono = "INSERT INTO telefono (Telefono) VALUES (?)"; 
+                  $stmtTelefono = mysqli_prepare($conn, $sqlTelefono);
+                  if ($stmtTelefono) {
+                     mysqli_stmt_bind_param($stmtTelefono, "s", $telefono);
+                     mysqli_stmt_execute($stmtTelefono);
+                     $idTelefono = mysqli_insert_id($conn);
+                  } else {
+                     echo '<script>alert("El telefono no se pudo comprobar");</script>';
+                  }
 
-               $query = "SELECT Correo_electronico FROM correos WHERE Correo_electronico = '$correoElectronico'";
-               $resultado = mysqli_query($conn, $query);
-               if ($resultado === false) {
-                  echo '<script>alert("El correo no se pudo comprobar");</script>';
-               }
-                     
-               if (mysqli_num_rows($resultado) > 0) {
-                  echo '<script>alert("El correo ya fue utilizado");</script>';
-               } else {
+                  $sqlCorreo = "INSERT INTO correos (Correo_electronico) VALUES (?)"; 
+                  $stmtCorreo = mysqli_prepare($conn, $sqlCorreo);
+                  if ($stmtCorreo) {
+                     mysqli_stmt_bind_param($stmtCorreo, "s", $correoElectronico);
+                     mysqli_stmt_execute($stmtCorreo);
+                     $idCorreo = mysqli_insert_id($conn);
+                  } else {
+                     echo '<script>alert("El correo no se pudo comprobar");</script>';
+                  }
 
-               $sqlTelefono = "INSERT INTO telefono (Telefono) VALUES (?)"; 
-               $stmtTelefono = mysqli_prepare($conn, $sqlTelefono);
-               if ($stmtTelefono) {
-                  mysqli_stmt_bind_param($stmtTelefono, "s", $telefono);
-                  mysqli_stmt_execute($stmtTelefono);
-                  $idTelefono = mysqli_insert_id($conn);
-               } else {
-                  echo '<script>alert("El telefono no se pudo comprobar");</script>';
-               }
+                  if (isset($matricula, $nombre, $apellidoPaterno, $apellidoMaterno, $idTelefono, $idCorreo, $semestre, $carrera, $contrasena, $edad)) {
+                  $sqlUsuario = "INSERT INTO usuario (Matricula, Nombre, Apellido_P, Apellido_M, ID_Cel, ID_Email, ID_Sem, ID_Car, Contrasena, Edad) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+                  $stmtUsuario = mysqli_prepare($conn, $sqlUsuario);
 
-               $sqlCorreo = "INSERT INTO correos (Correo_electronico) VALUES (?)"; 
-               $stmtCorreo = mysqli_prepare($conn, $sqlCorreo);
-               if ($stmtCorreo) {
-                  mysqli_stmt_bind_param($stmtCorreo, "s", $correoElectronico);
-                  mysqli_stmt_execute($stmtCorreo);
-                  $idCorreo = mysqli_insert_id($conn);
-               } else {
-                  echo '<script>alert("El correo no se pudo comprobar");</script>';
-               }
-
-               if (isset($matricula, $nombre, $apellidoPaterno, $apellidoMaterno, $idTelefono, $idCorreo, $semestre, $carrera, $contrasena, $edad)) {
-               $sqlUsuario = "INSERT INTO usuario (Matricula, Nombre, Apellido_P, Apellido_M, ID_Cel, ID_Email, ID_Sem, ID_Car, Contrasena, Edad) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
-               $stmtUsuario = mysqli_prepare($conn, $sqlUsuario);
-
-                  if ($stmtUsuario) {
-                     mysqli_stmt_bind_param($stmtUsuario, "ssssiiiisi", $matricula, $nombre, $apellidoPaterno, $apellidoMaterno, $idTelefono, $idCorreo, $semestre, $carrera, $contrasena, $edad);
-                     if (mysqli_stmt_execute($stmtUsuario)) {
-                        mysqli_close($conn);
-                        header("Location: exito.php");
-                        exit();
-                     } else {
-                        echo '<script>alert("El usuario no se pudo comprobar");</script>';
+                     if ($stmtUsuario) {
+                        mysqli_stmt_bind_param($stmtUsuario, "ssssiiiisi", $matricula, $nombre, $apellidoPaterno, $apellidoMaterno, $idTelefono, $idCorreo, $semestre, $carrera, $contrasena, $edad);
+                        if (mysqli_stmt_execute($stmtUsuario)) {
+                           mysqli_close($conn);
+                           header("Location: exito.php");
+                           exit();
+                        } else {
+                           mysqli_rollback($conn);
+                           echo '<script>alert("El usuario no se pudo agregar");</script>';
                      }
                   } else {
-                        echo '<script>alert("El usuario no se puede agregar");</script>';
+                     mysqli_rollback($conn);
+                     echo '<script>alert("El usuario no se puede agregar");</script>';
                   }
                } else {
-               echo '<script>alert("algun campo no tiene valor ingresado");</script>';
+                  mysqli_rollback($conn);
+                  echo '<script>alert("Algun campo no tiene valor ingresado");</script>';
                }
-                     
             }
          }
       }
@@ -115,7 +116,7 @@
    <head>
       <!-- Inclusion del head -->
       <?php include 'controller/head.php';?>
-      <title>ITSP · Register</title>
+      <title>Register · LTSchool</title>
 
       <script> // Validacion de campos
          function soloTexto(event) {
@@ -221,7 +222,7 @@
                      <!--Usuario-->
                      <div class="input-group mb-2">
                            <span class="input-group-text" id="basic-addon1"><i class="fa fa-user"></i></span>
-                           <input type="text" autocomplete="nope" name="matricula" class="form-control" placeholder="Usuario" aria-label="Usuario" minlength="10" maxlength="10" oninput="soloNumeros(event); validarFormulario(this);" onblur="minimo8(this.value, this);">
+                           <input type="text" autocomplete="nope" name="matricula" class="form-control" placeholder="Usuario" aria-label="Usuario" minlength="8" maxlength="8" oninput="soloNumeros(event); validarFormulario(this);" onblur="minimo8(this.value, this);">
                      </div>
                      <!--Nombre-->
                      <div class="input-group mb-2">
