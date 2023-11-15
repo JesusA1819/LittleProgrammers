@@ -39,9 +39,11 @@ if ($calificacion == 0) {
     ) {
         echo "Registros eliminados correctamente.";
         header("Location: ../page/home.php");
+        exit(); 
     } else {
         echo "Error al eliminar registros: " . mysqli_error($conexion);
         header("Location: ../page/index.html");
+        exit(); 
     }
 } else {
     echo "No se pueden eliminar tareas con calificaciones diferentes de 0";
