@@ -218,7 +218,7 @@
 </head>
 <body>
    <!--Reacomodamiento general y anexo de fondo-->
-   <section class="pt-5 pb-5 mt-0 align-items-center d-flex bg-dark" style="min-height: 100vh; background-size: cover; background-image: url(https://tintapublicanoticias.com/wp-content/uploads/2021/02/nota-3-foto-1.jpg);">
+  <section class="pt-5 pb-5 mt-0 align-items-center d-flex bg-dark" style="min-height: 100vh; background-size: cover; background-image: url(https://tintapublicanoticias.com/wp-content/uploads/2021/02/nota-3-foto-1.jpg);">
       <div class="container-fluid">
          <!--Ajustes responsibos-->
          <div class="row  justify-content-center align-items-center d-flex-row text-center h-100">
