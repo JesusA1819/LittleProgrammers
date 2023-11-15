@@ -75,7 +75,7 @@ $matricula = $_SESSION['Matricula'];
             
                     <!----------------------------------------------------------------------- Separador ---------------------------------------------------------------->
             <div class="col-sm-12">
-                <h2 class="mt-5 mb-4" style="text-align: center;">Subir Archivos PDF</h2>
+                <h2 class="mt-5 mb-4" style="text-align: center;">Subir Actividades</h2>
                 <div class="s">
                     <h4>Matrícula: <?php echo $_SESSION['Matricula'];?></h4>
                     <h4>Nombre: <?php echo $_SESSION['Nombre'];?></h4>
