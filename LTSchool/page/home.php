@@ -27,26 +27,6 @@ $matricula = $_SESSION['Matricula'];
     
                <!----------------------------------------------------------------------- Separador ---------------------------------------------------------------->
     <script>
-
-        const deleteButtons = document.querySelectorAll('.delete-btn');
-
-        deleteButtons.forEach(button => {
-            button.addEventListener('click', function() {
-                const taskId = this.getAttribute('data-id');
-
-                // Realizar una solicitud fetch a delete.php con el ID como parámetro
-                fetch(`../includes/delete.php?Ruta_archivo=${taskId}`)
-                    .then(response => {
-                        if (response.ok) {
-                            console.log('Tarea eliminada correctamente');
-                            // Aquí podrías actualizar la interfaz de usuario si es necesario
-                        } else {
-                            console.error('Error al eliminar la tarea');
-                        }
-                    })
-                    .catch(error => console.error('Error de red:', error));
-            });
-        });
         $(document).ready(function() {
         // Al hacer clic en el botón de tareas, mostrar u ocultar el contenido de tareas
         $(".toggle-tasks1").click(function() {
@@ -195,7 +175,7 @@ $matricula = $_SESSION['Matricula'];
                                                     if ($calificacion > 0) {
                                                         echo '<button class="btn btn-danger" disabled>Eliminar</button>';
                                                     } else {
-                                                        echo '<button class="btn btn-danger delete-btn" data-id="<?php echo $fila_tareas['ID_Tarea']; ?>">Eliminar</button>'
+                                                        echo '<a href="../includes/deleted.php?Ruta_archivo=' . $fila_tareas['ID_Tarea'] . '" class="btn btn-danger">Eliminar</a>';
                                                     }
                                                     ?>
                                                 </td>
@@ -225,7 +205,7 @@ $matricula = $_SESSION['Matricula'];
                 }
             }
             ?>
-            <div class="document-container" style="display: <?php echo $documentosMostrados ? 'none' : 'block'; ?>">
+            <div class="document-container" style="display: <?php echo $documentosMostrados ? 'none' : 'SC'; ?>">
                 <!-- Contenido de documentos -->
                 <table class="table table-bordered" width="100%" cellspacing="0">
                     <thead>
