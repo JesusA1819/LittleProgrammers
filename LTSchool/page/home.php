@@ -71,6 +71,9 @@ $matricula = $_SESSION['Matricula'];
         </head>
         <body>
         <div class="container">
+
+             <section class="pt-5 pb-5 mt-0 align-items-center d-flex bg-dark" style="min-height: 100vh; background-size: cover; background-image: url(https://tintapublicanoticias.com/wp-content/uploads/2021/02/nota-3-foto-1.jpg);">
+      <div class="container-fluid">
             
                     <!----------------------------------------------------------------------- Separador ---------------------------------------------------------------->
             <div class="col-sm-12">
