@@ -15,7 +15,8 @@
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous">
 
 <!--Enlace a la carpeta CSS-->
-<link rel="icon" href="../assets/images/65754.ico" type="image/x-icon">
+
 
 <!--TODO LOS JAVASCRIPT SE ENCEUNTRA EN LA CARPETA CONTROLLER NOMBRADO SCRIPTS.PHP-->
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<link rel="icon" href="../assets/images/65754.ico" type="image/x-icon">
