@@ -118,6 +118,7 @@
       <!-- Inclusion del head -->
       <?php include 'controller/head.php';?>
       <title>ITSP · Register</title>
+      <link rel="icon" href="../assets/images/65754.ico" type="image/x-icon">
 
       <script> // Validacion de campos
          function soloTexto(event) {
