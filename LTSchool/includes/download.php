@@ -4,14 +4,20 @@ include "db.php";
 $id = isset($_GET['Ruta_archivo']) ? $_GET['Ruta_archivo'] : null;
 
 if (!is_numeric($id)) {
-    die("ID no válido");
+    die("echo <script language='JavaScript'>
+    alert('Error de id');
+    location.assign('../page/home.php');
+    </script>;");
 }
 
 $sql0 = "SELECT ID_Cali, Archivo, Rutas FROM tareas WHERE ID_Tarea = $id";
 $result0 = mysqli_query($conexion, $sql0);
 
 if (!$result0) {
-    die("Error al obtener la tarea: " . mysqli_error($conexion));
+    die("echo <script language='JavaScript'>
+    alert('Error al obtener tarea');
+    location.assign('../page/home.php');
+    </script>;");
 }
 
 $row = mysqli_fetch_assoc($result0);
