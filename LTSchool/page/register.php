@@ -118,7 +118,6 @@
       <!-- Inclusion del head -->
       <?php include 'controller/head.php';?>
       <title>ITSP · Register</title>
-      <link rel="icon" href="../assets/images/65754.ico" type="image/x-icon">
 
       <script> // Validacion de campos
          function soloTexto(event) {
@@ -197,6 +196,10 @@
                input.value = valorSinEspacios.replace(/\s+/g, ''); // Eliminar espacios y actualizar el valor del campo
             }
         }
+
+        function validarEspacios(valor) {
+            return valor.indexOf(' ') === -1; // Devuelve true si no hay espacios en blanco
+         }
 
         function solonumeroyletras(event){
          const input = event.target;
