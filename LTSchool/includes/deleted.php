@@ -4,14 +4,20 @@ include "db.php";
 $id = isset($_GET['Ruta_archivo']) ? $_GET['Ruta_archivo'] : null;
 
 if (!is_numeric($id)) {
-    die("ID no válido");
+   die("echo <script language='JavaScript'>
+   alert('Error de id');
+   location.assign('../page/home.php');
+   </script>;");
 }
 
 $sql0 = "SELECT ID_Cali FROM tareas WHERE ID_Tarea = $id";
 $result0 = mysqli_query($conexion, $sql0);
 
 if (!$result0) {
-    die("Error al obtener el ID de calificación: " . mysqli_error($conexion));
+  die("echo <script language='JavaScript'>
+   alert('Error');
+   location.assign('../page/home.php');
+   </script>;");
 }
 
 $row = mysqli_fetch_assoc($result0);
@@ -21,7 +27,10 @@ $sqlCheckCalificacion = "SELECT Calificacion FROM calificaciones WHERE ID_Cali =
 $resultCheckCalificacion = mysqli_query($conexion, $sqlCheckCalificacion);
 
 if (!$resultCheckCalificacion) {
-    die("Error al verificar la calificación: " . mysqli_error($conexion));
+   echo "<script language='JavaScript'>
+   alert('Error al obtener calificacion');
+   location.assign('../page/home.php');
+   </script>";
 }
 
 $rowCalificacion = mysqli_fetch_assoc($resultCheckCalificacion);
@@ -37,18 +46,21 @@ if ($calificacion == 0) {
         mysqli_query($conexion, $sql3) &&
         mysqli_query($conexion, $sql1)
     ) {
-        echo "Registros eliminados correctamente.";
-        header("Location: ../page/home.php");
-        exit(); 
+      echo "<script language='JavaScript'>
+      alert('Tarea eliminada correctamente.');
+      location.assign('../page/home.php');
+      </script>";    
     } else {
-        echo "Error al eliminar registros: " . mysqli_error($conexion);
-        header("Location: ../page/index.html");
-        exit(); 
+      echo "<script language='JavaScript'>
+      alert('Error al eliminar la tarea.');
+      location.assign('../page/home.php');
+      </script>";
     }
 } else {
-    echo "No se pueden eliminar tareas con calificaciones diferentes de 0";
-    header("Location: ../page/home.php");
-
+   echo "<script language='JavaScript'>
+   alert('No se pueden elimar tareas ya calificadas');
+   location.assign('../page/home.php');
+   </script>";
 }
 
 mysqli_close($conexion);
