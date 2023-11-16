@@ -15,8 +15,7 @@ $matricula = $_SESSION['Matricula'];
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SUBIR TAREA</title>
-
-    <link rel="icon" href="../assets/images/65754.ico" type="image/x-icon">
+     
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
@@ -75,7 +74,7 @@ $matricula = $_SESSION['Matricula'];
             
                     <!----------------------------------------------------------------------- Separador ---------------------------------------------------------------->
             <div class="col-sm-12">
-                <h2 class="mt-5 mb-4" style="text-align: center;">Subir Actividades</h2>
+                <h2 class="mt-5 mb-4" style="text-align: center;">Subir Archivos PDF</h2>
                 <div class="s">
                     <h4>Matrícula: <?php echo $_SESSION['Matricula'];?></h4>
                     <h4>Nombre: <?php echo $_SESSION['Nombre'];?></h4>
