@@ -9,15 +9,16 @@
 
             <?php 
             $servername = "lps1819.mariadb.database.azure.com";
-   $username = "JesusAlonso@lps1819";
-   $password = "Alonsogomez1819";
-   $database = "lpstec";
+            $username = "JesusAlonso@lps1819";
+            $password = "Alonsogomez1819";
+            $database = "lpstec";
 
-   $conn = mysqli_connect($servername, $username, $password, $database);
+            $conn = mysqli_connect($servername, $username, $password, $database);
             if (!$conexion) {
-                die("Error al conectar a la base de datos: " . mysqli_connect_error());
-                echo "Fallo de conexion vuelva despues";
-                header("Location: home.php");
+                die("echo <script language='JavaScript'>
+                alert('Error de conexion');
+                location.assign('index.html');
+                </script>;");
                 exit();
             }
             $matricula = $_SESSION['Matricula'];
@@ -37,10 +38,18 @@
                 
                 if ($resultado) {
                 } else {
-                    die("Error al ejecutar la consulta: " . $conexion->error);
+                    die("echo <script language='JavaScript'>
+                    alert('Error en el proceso');
+                    location.assign('index.html');
+                    </script>;");
+                    exit();
                 }
             } else {
-                die("Error al preparar la consulta: " . $conexion->error);
+                die("echo <script language='JavaScript'>
+                alert('Error en el proceso');
+                location.assign('index.html');
+                </script>;");
+                exit();
             }
             
             if ($statement) {
@@ -50,10 +59,18 @@
                 
                 if ($resultado) {
                 } else {
-                    die("Error al ejecutar la consulta: " . $conexion->error);
+                    die("echo <script language='JavaScript'>
+                    alert('Error en el proceso');
+                    location.assign('index.html');
+                    </script>;");
+                    exit();
                 }
             } else {
-                die("Error al preparar la consulta: " . $conexion->error);
+                die("echo <script language='JavaScript'>
+                alert('Error en el proceso');
+                location.assign('index.html');
+                </script>;");
+                exit();
             }
 
             ?>
