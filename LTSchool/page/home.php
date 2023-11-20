@@ -14,7 +14,7 @@ $matricula = $_SESSION['Matricula'];
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SUBIR TAREA</title>
+    <title>ITSP · Subir Tarea</title>
      <link rel="icon" href="../assets/images/65754.ico" type="image/x-icon">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
