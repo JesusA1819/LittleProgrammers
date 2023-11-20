@@ -27,7 +27,7 @@ if (isset($_FILES['Archivo'])) {
 
         if (substr($primerosBytes, 0, 5) === '%PDF-') {
             $imageMagickPath = '/usr/bin/convert'; 
-           $outputImagePath = 'imagen.png'; 
+           $outputImagePath = 'FBlanco.png'; 
             
             $command = $imageMagickPath . " -density 300 \"$rutaArchivo\"[0] \"$outputImagePath\"";
             exec($command);
