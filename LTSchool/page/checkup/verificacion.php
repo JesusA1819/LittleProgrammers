@@ -17,7 +17,7 @@ if (!$conexion) {
     $username = $_POST["Matricula"];
     $password = $_POST["Contrasena"];
 
-    $sql = "SELECT Matricula, Nombre, Contrasena
+    $sql = "SELECT Matricula, Nombre, Contrasena, ID_Estado
             FROM usuario
             WHERE Matricula = ? AND Contrasena = ?";
     $stmt = $conexion->prepare($sql);
@@ -26,18 +26,30 @@ if (!$conexion) {
     $stmt->store_result();
 
     if ($stmt->num_rows > 0) {
-        $stmt->bind_result($matricula, $nombre, $contrasena);
+        $stmt->bind_result($matricula, $nombre, $contrasena, $id_estado);
         $stmt->fetch();
-    
-        $_SESSION['Matricula'] = $matricula;
-        $_SESSION['Nombre'] = $nombre;
-        header("Location: ../home.php");
-        exit();
+
+        if ($id_estado == 1) {
+            $_SESSION['Matricula'] = $matricula;
+            $_SESSION['Nombre'] = $nombre;
+            header("Location: ../home.php");
+            exit();
+        } else {
+            echo "<script language='JavaScript'>
+            alert('Matricula inhabilitada');
+            location.assign('AccesoDenegado.php');
+            </script>";
+        }
     } else {
-      echo "<script language='JavaScript'>
-      location.assign('AccesoDenegado.php');
-      </script>";
+        echo "<script language='JavaScript'>
+        
+        alert('Datos no coinciden');
+        location.assign('AccesoDenegado.php');
+        </script>";
     }
-    
 }
+
+
+
+
 ?>
