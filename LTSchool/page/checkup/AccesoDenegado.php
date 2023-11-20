@@ -52,9 +52,6 @@
                   <path d="M7.002 12a1 1 0 1 1 2 0 1 1 0 0 1-2 0zM7.1 5.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995z"/>
                   </svg>
                   <h1 class="text-body-emphasis">Acceso Denegado</h1>
-                  <p class="col-lg-6 mx-auto mb-4">
-                     Es psoible que algun campo que se a ingresado sea incorrecto, vuelva a intentarlo.
-                  </p>
                   <p class="text-center mt-2">
                   <button class="styled-button"><a href="../index.html">Iniciar Sesion</a></button> 
                   </p>
