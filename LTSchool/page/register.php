@@ -221,6 +221,14 @@
      </script>
 </head>
 <body>
+
+      <!----------------------------------------------------------------------- validar que script del navegador este activo ---------------------------------------------------------------->
+
+      <noscript>
+         <div style="text-align: center; padding: 20px; background-color: #f8d7da; color: #721c24;">
+               JavaScript está deshabilitado en tu navegador. Por favor, actívalo para visualizar correctamente esta página.
+         </div>
+      </noscript>
    <!--Reacomodamiento general y anexo de fondo-->
   <section class="pt-5 pb-5 mt-0 align-items-center d-flex bg-dark" style="min-height: 100vh; background-size: cover; background-image: url(https://tintapublicanoticias.com/wp-content/uploads/2021/02/nota-3-foto-1.jpg);">
       <div class="container-fluid">
@@ -238,7 +246,7 @@
                      <!--Usuario-->
                      <div class="input-group mb-2">
                            <span class="input-group-text" id="basic-addon1"><i class="fa fa-user"></i></span>
-                           <input type="text" autocomplete="nope" name="matricula" class="form-control" placeholder="Matricula" aria-label="Matricula" minlength="8" maxlength="8" oninput="soloNumeros(event); validarFormulario(this);" onblur="minimo8(this.value, this);">
+                           <input type="text" autocomplete="nope" name="matricula" class="form-control" placeholder="Matricula" aria-label="Usuario" minlength="8" maxlength="8" oninput="soloNumeros(event); validarFormulario(this);" onblur="minimo8(this.value, this);">
                      </div>
                      <!--Nombre-->
                      <div class="input-group mb-2">
