@@ -326,13 +326,6 @@ $matricula = $_SESSION['Matricula'];
             a {
                 text-decoration: none;
             }
-
-    .fondo-negrita {
-      font-weight: bold;
-      background-color: #f4f4f4; 
-      padding: 2px; 
-    }
-            
             .toggle-tasks {
                 background-color: #007bff;
                 color: #fff;
