@@ -14,6 +14,11 @@ body {
     color: #333; 
 }
 
+.h2, h2{
+    font-size: calc(1.62 5rem + .9vw);
+    color: lavenderblush;
+    }
+
 .contenedor {
     position: absolute;
     top: 70%;
@@ -83,6 +88,7 @@ body {
  }
 
  .s{
+    color: lavenderblush;
     position: absolute;
     right: 0;
     top: 0;
